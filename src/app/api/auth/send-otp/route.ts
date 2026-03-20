@@ -48,9 +48,13 @@ export async function POST(req: Request) {
         `,
       });
 
-      if (error) {
+      /*if (error) {
         console.error("Resend error:", error);
         return NextResponse.json({ error: "Failed to send email via Resend." }, { status: 500 });
+      }*/
+      if (error) {
+        console.error("FULL RESEND ERROR:", JSON.stringify(error, null, 2));
+        return NextResponse.json({ error: JSON.stringify(error) }, { status: 500 });
       }
     } else {
       console.warn(`[DEV LOG] RESEND_API_KEY is missing. Mock email sent - Generated OTP for ${email}: ${otpCode}`);
