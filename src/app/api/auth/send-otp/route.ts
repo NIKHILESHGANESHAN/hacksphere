@@ -4,6 +4,8 @@ import { Otp } from "@/models/Otp";
 import { Resend } from "resend";
 import bcrypt from "bcryptjs";
 
+console.log("RESEND KEY:", process.env.RESEND_API_KEY);
+
 const resend = new Resend(process.env.RESEND_API_KEY || "fallback");
 
 export async function POST(req: Request) {
@@ -45,7 +47,7 @@ export async function POST(req: Request) {
           </div>
         `,
       });
-      
+
       if (error) {
         console.error("Resend error:", error);
         return NextResponse.json({ error: "Failed to send email via Resend." }, { status: 500 });
