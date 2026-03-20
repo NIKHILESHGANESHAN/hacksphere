@@ -36,7 +36,7 @@ export async function POST(req: Request) {
     if (process.env.RESEND_API_KEY) {
       const { error } = await resend.emails.send({
         from: "Acme <onboarding@resend.dev>", // Replace with a verified domain for full production
-        to: [email],
+        to: ["codewithngc@gmail.com"],
         subject: "Your SRM HackSphere OTP",
         html: `
           <div style="font-family: Arial, sans-serif; background-color: #0a0a0a; color: #fff; padding: 20px; text-align: center;">
